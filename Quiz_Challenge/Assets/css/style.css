@@ -1,0 +1,34 @@
+*,*::before,
+*::after{box-sizing:border-box;
+}
+div {
+    border: 1px solid black;
+    padding: 25px 50px;
+    background-color: #eff5f8;
+}
+
+h2 {
+    font-size: 3em;
+    margin: 0px;
+    margin-top: 0.45em;
+    margin-bottom: 0.45em;
+    text-align: center;
+    
+}
+button {
+    background-color: #001b44;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    letter-spacing: 0.21px;
+    line-height: 16;
+    max-width: 255px;
+    padding: 20px 52px;
+    text-align: center;
+    transition-duration: 0.15;
+    transition-property: background-color;
+    transition-timing-function: linear;
+    margin-top: 0.6em;
+    float: center;
+}
