@@ -1,44 +1,45 @@
 var currentQuestionIndex = 0;
-var time = question.length * 15;
+var time = questions.length * 15;
 var timeId;
 
-var questionEl = document.getElementsById("question");
+var questionsEl = document.getElementById("questions");
 var timerEL = document.getElementById("time");
 var choicesEl = document.getElementById("choices");
-var busmitBtn = document.getElementById("submit");
+var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
-var geedbackEl = document.getElementById("getback");
+var getbackEl = document.getElementById("getback");
+var titleEl = document.getElementById("title");
 
 function startQuiz() {
   var startScreenEl = document.getElementById("start-screen");
   startScreenEl.setAttribute("class", "hide");
-  questionEl.removeAttibute("class");
+  questionsEl.removeAttribute("class");
 
   //Start timer
   
   timerId = setInterval(clockTick, 1000);
-  timerEl.textContent = time;
+  timerEL.textContent = time;
   getQuestion();
 }
 
 function getQuestion() {
   var currentQuestion = questions[currentQuestionIndex];
-  var title1 = (textContent = currentQuestion.title);
+  var titleEl = (textContent = currentQuestion.title);
 }
-var titleEl = document.getElementbyId('question-title');
+var titleEl = document.getElementById('question-title');
 titleEl.textContent = currentQuestionIndex.title;
 
-choiceEl.innerHTML = " ";
+//choicesEl.innerHTML = "";
 
-for (var i = 0; 1 < currentQuestion.choices.length; i++) {
-  var choice = currentQuestion.choices[i];
+for (var i = 0; i < questions[currentQuestionIndex].choices.length; i++) {
+  var choice = questions[currentQuestionIndex].choices[i];
   var choiceNode = document.createElement("button");
   choiceNode.setAttribute("class", "choice");
   choiceNode.setAttribute("value", "choice");
 
   choiceNode.textContent = i + i + " ." + choice;
-  choiceEl.appendChild(choiceNode);
+  //choicesEl.appendChild(choiceNode);
 }
 
 function questionClick(event) {
@@ -67,12 +68,14 @@ function questionClick(event) {
       feedbackEl.setAttribute("class", "feedback hide");
     }, 1000);
     curentQuestionIndex++;
-  if (time <= 0|| currentQuestionIndex === questions.length)
-  quizEnd();
-  } else {
-    getQuestion();
-  } 
+    if (time <= 0|| currentQuestionIndex === questions.length){
+      quizEnd();
+    } else {
+      getQuestion();
+    }
+  }
 }
+
 function quizEnd (){
   clearInterval(timerId);
 
@@ -82,15 +85,19 @@ function quizEnd (){
   var finalScoreEl = document.getElementById ('finalScore');
   finalScoreEl.textContent = time;
 
-questionEl.setAttibute ("class", "hide");
+  questionEl.setAttibute ("class", "hide");
+}
 
 function clockTick (){
   time --;
-}timerEL.textContent =time;
+}
+  
+timerEL.textContent =time;
+  
 if (time <= 0) {
   quizEnd ();
 }
-}
+
 
 function saveHighscore (){
   var initials = initialsEl.value.trim();
@@ -113,9 +120,10 @@ function checkforEnter(event) {
     saveHighscore();
   }
 }
-submitBtn.oneclick = saveHighscore;
+
+submitBtn.onclick = saveHighscore;
 startBtn.onclick =startQuiz;
-choicesEl.onclick =questionClick;
+//choicesEl.onclick =questionClick;
 initialsEl.onkeyup = checkforEnter;
 
   
