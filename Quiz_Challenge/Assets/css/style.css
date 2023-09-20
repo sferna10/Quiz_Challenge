@@ -29,3 +29,7 @@ button {
     margin-top: 0.6em;
     float: center;
 }
+.hide{
+    display: none;
+    
+}
