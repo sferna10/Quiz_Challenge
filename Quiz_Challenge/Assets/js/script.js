@@ -27,7 +27,7 @@ function startQuiz() {
 }
 //Start timer
 
-timerEl = setInterval(clockTick, 1000);
+timeId = setInterval(clockTick, 1000);
 //timerEl.textContent = time;
 getQuestion();
 
@@ -44,7 +44,7 @@ function getQuestion() {
     var choices = questions[currentQuestionIndex].choices[i];
     var choiceNode = document.createElement("button");
     choiceNode.setAttribute("class", "choice");
-    choiceNode.setAttribute("value", "choice");
+    choiceNode.setAttribute("value", "choices");
     choiceNode.addEventListener("click", questionClick);
     choiceNode.textContent = i + 1 + " ." + choices;
     choicesEl.appendChild(choiceNode);
@@ -63,10 +63,11 @@ function questionClick(event) {
     if (time < 0) {
       time = 0;
     }
+
     timerEl.textContent = time;
     feedbackEl.textContent = "wrong!";
   } else {
-    feedbackEl.textContext = "Correct!";
+    feedbackEl.textContent = "Correct!";
     feedbackEl.setAttribute("class", "feedback");
     setTimeout(function () {
       feedbackEl.setAttribute("class", "feedback hide");
@@ -81,7 +82,7 @@ function questionClick(event) {
 }
 
 function quizEnd() {
-  clearInterval(timerEl);
+  clearInterval(timeId);
 
   var endScreenEl = document.getElementbyId("end-screen");
   endScreenEl.removeAttribute("class");
