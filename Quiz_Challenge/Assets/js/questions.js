@@ -32,3 +32,4 @@ var questions = [
     answer: "console.log",
   },
 ];
+export default questions

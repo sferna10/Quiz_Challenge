@@ -1,4 +1,6 @@
 var currentQuestionIndex = 0;
+import questions from "./questions.js";
+
 var time = questions.length * 15;
 var timeId;
 
@@ -12,10 +14,10 @@ var getbackEl = document.getElementById("getback");
 var titleEl = document.getElementById("title");
 var feedbackEl = document.getElementById("feedback");
 
-function init() {
-  getWins();
-  Getlosses();
-}
+//function init() {
+//getWins();
+//Getlosses();
+//}
 
 function startQuiz() {
   var startScreenEl = document.getElementById("start-screen");
@@ -26,12 +28,12 @@ function startQuiz() {
 //Start timer
 
 timerEl = setInterval(clockTick, 1000);
-timerEl.textContent = time;
+//timerEl.textContent = time;
 getQuestion();
 
 function getQuestion() {
   var currentQuestion = questions[currentQuestionIndex];
-  var titleEl = (textContent = currentQuestion.title);
+  // var titleEl = (textContent = currentQuestion.title);
 
   var titleEl = document.getElementById("question-title");
   titleEl.textContent = currentQuestion.title;
@@ -39,19 +41,15 @@ function getQuestion() {
   //choicesEl.innerHTML = "";
 
   for (var i = 0; i < questions[currentQuestionIndex].choices.length; i++) {
-    var choice = questions[currentQuestionIndex].choices[i];
+    var choices = questions[currentQuestionIndex].choices[i];
     var choiceNode = document.createElement("button");
     choiceNode.setAttribute("class", "choice");
     choiceNode.setAttribute("value", "choice");
     choiceNode.addEventListener("click", questionClick);
-    choiceNode.textContent = i + 1 + " ." + choice;
+    choiceNode.textContent = i + 1 + " ." + choices;
     choicesEl.appendChild(choiceNode);
   }
 }
-function questionClick(event) {
-  var buttonEl = event.target;
-}
-
 function questionClick(event) {
   var buttonEl = event.target;
 
@@ -97,8 +95,6 @@ function quizEnd() {
 function clockTick() {
   time--;
 }
-
-timerEl.textContent = time;
 
 if (time <= 0) {
   quizEnd();
