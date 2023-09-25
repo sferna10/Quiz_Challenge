@@ -25,7 +25,7 @@ function startQuiz() {
   questionsEl.removeAttribute("class");
   startBtn.disable = true;
 }
-//Start timer
+// startTimer();
 
 timeId = setInterval(clockTick, 1000);
 //timerEl.textContent = time;
@@ -38,13 +38,13 @@ function getQuestion() {
   var titleEl = document.getElementById("question-title");
   titleEl.textContent = currentQuestion.title;
 
-  //choicesEl.innerHTML = "";
+  choicesEl.innerHTML = "";
 
   for (var i = 0; i < questions[currentQuestionIndex].choices.length; i++) {
     var choices = questions[currentQuestionIndex].choices[i];
     var choiceNode = document.createElement("button");
     choiceNode.setAttribute("class", "choice");
-    choiceNode.setAttribute("value", "choices");
+    choiceNode.setAttribute("value", choices);
     choiceNode.addEventListener("click", questionClick);
     choiceNode.textContent = i + 1 + " ." + choices;
     choicesEl.appendChild(choiceNode);
@@ -64,20 +64,20 @@ function questionClick(event) {
       time = 0;
     }
 
-    timerEl.textContent = time;
     feedbackEl.textContent = "wrong!";
   } else {
     feedbackEl.textContent = "Correct!";
-    feedbackEl.setAttribute("class", "feedback");
-    setTimeout(function () {
-      feedbackEl.setAttribute("class", "feedback hide");
-    }, 1000);
-    currentQuestionIndex++;
-    if (time <= 0 || currentQuestionIndex === questions.length) {
-      quizEnd();
-    } else {
-      getQuestion();
-    }
+  }
+  timerEl.textContent = time;
+  feedbackEl.setAttribute("class", "feedback");
+  setTimeout(function () {
+    feedbackEl.setAttribute("class", "feedback hide");
+  }, 1000);
+  currentQuestionIndex++;
+  if (time <= 0 || currentQuestionIndex === questions.length) {
+    quizEnd();
+  } else {
+    getQuestion();
   }
 }
 
