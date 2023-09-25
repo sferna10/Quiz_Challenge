@@ -95,10 +95,11 @@ function quizEnd() {
 
 function clockTick() {
   time--;
-}
+  timerEl.textContent = time;
 
 if (time <= 0) {
   quizEnd();
+}
 }
 
 function saveHighscore() {
@@ -125,5 +126,5 @@ function checkforEnter(event) {
 
 submitBtn.onclick = saveHighscore;
 startBtn.onclick = startQuiz;
-//choicesEl.onclick =questionClick;
+choicesEl.onclick =questionClick;
 initialsEl.onkeyup = checkforEnter;
