@@ -84,7 +84,7 @@ function questionClick(event) {
 function quizEnd() {
   clearInterval(timeId);
 
-  var endScreenEl = document.getElementbyId("end-screen");
+  var endScreenEl = document.getElementById("end-screen");
   endScreenEl.removeAttribute("class");
 
   var finalScoreEl = document.getElementById("finalScore");
