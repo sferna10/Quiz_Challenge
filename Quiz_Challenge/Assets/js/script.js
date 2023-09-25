@@ -58,6 +58,7 @@ function questionClick(event) {
   }
 
   if (buttonEl.value !== questions[currentQuestionIndex].answer) {
+    console.log(buttonEl.value);
     time -= 15;
 
     if (time < 0) {
@@ -97,9 +98,9 @@ function clockTick() {
   time--;
   timerEl.textContent = time;
 
-if (time <= 0) {
-  quizEnd();
-}
+  if (time <= 0) {
+    quizEnd();
+  }
 }
 
 function saveHighscore() {
@@ -126,5 +127,4 @@ function checkforEnter(event) {
 
 submitBtn.onclick = saveHighscore;
 startBtn.onclick = startQuiz;
-choicesEl.onclick =questionClick;
 initialsEl.onkeyup = checkforEnter;
