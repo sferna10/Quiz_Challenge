@@ -121,12 +121,12 @@ function saveHighscore() {
     window.location.href = "highscores.html";
   }
 }
-function renderMessage(){
-var lastHighScore = JSON.parse(localStorage.getElementById("saveHighscore"));
-if (lastHighScore !== null) {
- document.querySelector(".message").textContent= highscores + initials}
+function renderMessage() {
+  var lastHighScore = JSON.parse(localStorage.getElementById("saveHighscore"));
+  if (lastHighScore !== null) {
+    document.querySelector(".message").textContent = highscores + initials;
+  }
 }
-
 
 function checkforEnter(event) {
   if (event.key === "Enter") {
