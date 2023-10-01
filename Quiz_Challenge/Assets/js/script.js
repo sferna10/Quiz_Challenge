@@ -122,7 +122,7 @@ function saveHighscore() {
   }
 }
 function renderMessage(){
-var lastHighScore = JSON.parse(loalStorage.getElementById("saveHighscore"));
+var lastHighScore = JSON.parse(localStorage.getElementById("saveHighscore"));
 if (lastHighScore !== null) {
  document.querySelector(".message").textContent= highscores + initials}
 }
