@@ -24,7 +24,7 @@ No requiere any specific installation.
 
 The game/quiz begins with an initial screen explaining the rules of the quiz/game. When the player clicks the start button, the quiz starts. The user will be prompted with a question and four possible answers. Every time the player answers a question incorrectly, they will penalized the score/time by 15 seconds.
 
-https://github.com/sferna10/Quiz_Challenge/issues/6#issue-1948521615
+<img width="508" alt="initial page" src="https://github.com/sferna10/Quiz_Challenge/assets/139423719/af905123-3392-4a99-a325-88a153aabc09">
 
 ## License 
     
