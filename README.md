@@ -22,7 +22,7 @@ No requiere any specific installation.
 
 ## Usage
 
-The game/quiz begins with an initial screen explaining the rules of the quiz/game. When the player clicks the start button the quiz starts. The user will be prompted with a question and four possible answers. Every time the player answers correctly a question, the remains the   
+The game/quiz begins with an initial screen explaining the rules of the quiz/game. When the player clicks the start button, the quiz starts. The user will be prompted with a question and four possible answers. Every time the player answers a question incorrectly, they will penalized the score/time by 15 seconds.
 
 ## License 
     
